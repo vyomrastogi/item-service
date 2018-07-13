@@ -1,0 +1,12 @@
+language: java
+jdk: oraclejdk8
+install:
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+script:
+- mvn clean package
+deploy:
+  provider: heroku
+  api_key:
+    secure: KwqWgtBTcWtCglTMpOC5nRMZZcdjSXEHPZ0G/H4RfqYAKe7gBaUS3DKzwOiPz2oAOfBX0OD3bZoAtyyZKa2YXa68yKmbrGWv0BnHDDGw2HdAcvuFOC+DKi9jU1x8ukeLUXbVh8/QmFTI3Q7FrDrq/TiIp0C0+cXaA4zri+QBnoDO/pU4KpgTcoR6CDP578JmX42hYNxF+g/hQQkGDGM7W3L8xai9HbAtnwYjE1QY4YuedrDcx4wrMDebMZIpfhp5QRDcp4OfqljLMc2oNM7EQeJ/UiKCKB9yW85MGcK4eU2qGw7ppVHeQHK+tFLBZQx1S6IPLTZvS+pA45/QdxAVc5vjmuye7z01cVqegxR9TtyCNC9O2w9OdKi3cab4J9j4+bAozJexQApNWyydZ3cdU9ss2K1Ap+YQeTn8Z1c9lmumDqwBOgrfFwXtwnAqVuP/cOHIyn8Lmb8bAbnlEU8aZocQCUwYLgQ8YjIDD38qgbLK3um91CiIbXtre/Av71SCfxuE9qyj9JZ7aQ64p+c1Pu2GXaIUa2iONoks/0mWCqjJfo8VSuoEyWJuYc5xT/lk6vB910WOBG95uzThIqdaGTQEKiVo4VdUgB5mLrzR8ojM3cpHNtUr9wuw6CuFnPNYSRZrqfv0lhtQVWGN/audhbmdam4FGKmW8ykDZdS2l0E=
+  app: ms-item-service
+  skip_cleanup: true
